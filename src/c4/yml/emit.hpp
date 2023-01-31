@@ -17,7 +17,7 @@
 #define RYML_DEPRECATE_EMIT                                             \
     RYML_DEPRECATED("use emit_yaml() instead. See https://github.com/biojppm/rapidyaml/issues/120")
 #ifdef emit
-#error "emit is defined, likely from a Qt include. This will cause a compilation error. See https://github.com/biojppm/rapidyaml/issues/120"
+// #error "emit is defined, likely from a Qt include. This will cause a compilation error. See https://github.com/biojppm/rapidyaml/issues/120"
 #endif
 #define RYML_DEPRECATE_EMITRS                                           \
     RYML_DEPRECATED("use emitrs_yaml() instead. See https://github.com/biojppm/rapidyaml/issues/120")
@@ -139,10 +139,10 @@ inline size_t emit_yaml(Tree const& t, size_t id, FILE *f)
     EmitterFile em(f);
     return em.emit_as(EMIT_YAML, t, id, /*error_on_excess*/true).len;
 }
-RYML_DEPRECATE_EMIT inline size_t emit(Tree const& t, size_t id, FILE *f)
-{
-    return emit_yaml(t, id, f);
-}
+// RYML_DEPRECATE_EMIT inline size_t emit(Tree const& t, size_t id, FILE *f)
+// {
+//     return emit_yaml(t, id, f);
+// }
 
 /** emit JSON to the given file. A null file defaults to stdout.
  * Return the number of bytes written. */
@@ -161,10 +161,10 @@ inline size_t emit_yaml(Tree const& t, FILE *f=nullptr)
     EmitterFile em(f);
     return em.emit_as(EMIT_YAML, t, /*error_on_excess*/true).len;
 }
-RYML_DEPRECATE_EMIT inline size_t emit(Tree const& t, FILE *f=nullptr)
-{
-    return emit_yaml(t, f);
-}
+// RYML_DEPRECATE_EMIT inline size_t emit(Tree const& t, FILE *f=nullptr)
+// {
+//     return emit_yaml(t, f);
+// }
 
 /** emit JSON to the given file. A null file defaults to stdout.
  * Return the number of bytes written.
@@ -184,10 +184,10 @@ inline size_t emit_yaml(ConstNodeRef const& r, FILE *f=nullptr)
     EmitterFile em(f);
     return em.emit_as(EMIT_YAML, r, /*error_on_excess*/true).len;
 }
-RYML_DEPRECATE_EMIT inline size_t emit(ConstNodeRef const& r, FILE *f=nullptr)
-{
-    return emit_yaml(r, f);
-}
+// RYML_DEPRECATE_EMIT inline size_t emit(ConstNodeRef const& r, FILE *f=nullptr)
+// {
+//     return emit_yaml(r, f);
+// }
 
 /** emit JSON to the given file. A null file defaults to stdout.
  * Return the number of bytes written.
@@ -241,10 +241,10 @@ inline substr emit_yaml(Tree const& t, size_t id, substr buf, bool error_on_exce
     EmitterBuf em(buf);
     return em.emit_as(EMIT_YAML, t, id, error_on_excess);
 }
-RYML_DEPRECATE_EMIT inline substr emit(Tree const& t, size_t id, substr buf, bool error_on_excess=true)
-{
-    return emit_yaml(t, id, buf, error_on_excess);
-}
+// RYML_DEPRECATE_EMIT inline substr emit(Tree const& t, size_t id, substr buf, bool error_on_excess=true)
+// {
+//     return emit_yaml(t, id, buf, error_on_excess);
+// }
 
 /** emit JSON to the given buffer. Return a substr trimmed to the emitted JSON.
  * @param error_on_excess Raise an error if the space in the buffer is insufficient.
@@ -264,10 +264,10 @@ inline substr emit_yaml(Tree const& t, substr buf, bool error_on_excess=true)
     EmitterBuf em(buf);
     return em.emit_as(EMIT_YAML, t, error_on_excess);
 }
-RYML_DEPRECATE_EMIT inline substr emit(Tree const& t, substr buf, bool error_on_excess=true)
-{
-    return emit_yaml(t, buf, error_on_excess);
-}
+// RYML_DEPRECATE_EMIT inline substr emit(Tree const& t, substr buf, bool error_on_excess=true)
+// {
+//     return emit_yaml(t, buf, error_on_excess);
+// }
 
 /** emit JSON to the given buffer. Return a substr trimmed to the emitted JSON.
  * @param error_on_excess Raise an error if the space in the buffer is insufficient.
@@ -288,10 +288,10 @@ inline substr emit_yaml(ConstNodeRef const& r, substr buf, bool error_on_excess=
     EmitterBuf em(buf);
     return em.emit_as(EMIT_YAML, r, error_on_excess);
 }
-RYML_DEPRECATE_EMIT inline substr emit(ConstNodeRef const& r, substr buf, bool error_on_excess=true)
-{
-    return emit_yaml(r, buf, error_on_excess);
-}
+// RYML_DEPRECATE_EMIT inline substr emit(ConstNodeRef const& r, substr buf, bool error_on_excess=true)
+// {
+//     return emit_yaml(r, buf, error_on_excess);
+// }
 
 /** emit JSON to the given buffer. Return a substr trimmed to the emitted JSON.
  * @param error_on_excess Raise an error if the space in the buffer is insufficient.
